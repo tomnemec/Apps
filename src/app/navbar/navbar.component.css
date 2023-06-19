@@ -1,0 +1,31 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  height: 50px;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  object-fit: fill;
+  border-radius: 50%;
+}
+button {
+  margin: 30px;
+}
+h1 {
+  color: white;
+}
