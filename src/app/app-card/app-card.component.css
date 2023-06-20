@@ -1,0 +1,36 @@
+.card {
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: rgb(255, 248, 249);
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  > img {
+    margin: 10px;
+    height: 200px;
+    width: 100%;
+    object-fit: fit;
+  }
+}
+.card:hover {
+  transform: scale(1.05);
+  transition: all 0.5s ease-in-out;
+}
+.go-to {
+  border: none;
+  padding: 10px;
+  color: var(--secondary-color);
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+.go-to:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 0.5s ease-in-out;
+}

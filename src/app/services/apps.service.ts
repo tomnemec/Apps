@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-interface App {
+export interface App {
   id: number;
   name: string;
   url: string;
