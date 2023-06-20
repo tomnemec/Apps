@@ -11,7 +11,11 @@
     <button mat-button color="warn" routerLink="/login">Login</button>
   </div>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item (click)="logout()">Odhlásit</button>
+    <button mat-menu-item disabled="">
+      Profil <i class="bi bi-person"></i>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      Odhlásit <i class="bi bi-box-arrow-right"></i>
+    </button>
   </mat-menu>
 </nav>

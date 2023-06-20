@@ -31,9 +31,6 @@ nav {
   transition: 0.5s ease-in-out;
   border: 1px solid var(--secondary-color);
 }
-button {
-  margin: 30px;
-}
 h1 {
   color: white;
 }
