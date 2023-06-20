@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { Login, UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,15 +7,21 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent {
+  userLogin: Login = { email: '', password: '' };
+  error: string = '';
+
   constructor(private serviceUsers: UserService) {}
-  ngOnInit() {
-    this.serviceUsers
-      .login({
-        email: 'tomas.a.nemec@husqvarnagroup.com',
-        password: 'Welcome07+',
-      })
-      .subscribe((response) => {
-        console.log(response);
-      });
+  ngOnInit() {}
+  login() {
+    this.userLogin.email.toLowerCase();
+    this.serviceUsers.login(this.userLogin).subscribe({
+      next: (r: any) => {
+        localStorage.setItem('token', r.token);
+        if (this.serviceUsers.isLoggedIn()) {
+          window.location.reload();
+        }
+      },
+      error: (e: any) => (this.error = e.error.message),
+    });
   }
 }

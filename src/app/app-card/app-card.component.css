@@ -20,17 +20,3 @@
   transform: scale(1.05);
   transition: all 0.5s ease-in-out;
 }
-.go-to {
-  border: none;
-  padding: 10px;
-  color: var(--secondary-color);
-  background: var(--primary-color);
-  border-radius: 10px;
-}
-.go-to:hover {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-  cursor: pointer;
-  transform: scale(1.05);
-  transition: all 0.5s ease-in-out;
-}

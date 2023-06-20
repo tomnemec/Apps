@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-interface Login {
+export interface Login {
   email: string;
   password: string;
 }
@@ -36,5 +36,13 @@ export class UserService {
     if (!token) return null;
     let jwtHelper = new JwtHelperService();
     return jwtHelper.decodeToken(token) as User;
+  }
+  getValidation() {
+    let headers = new HttpHeaders();
+    let token = localStorage.getItem('token');
+    headers = headers.append('Authorization', 'Bearer ' + token);
+    let options = { headers: headers };
+
+    return options;
   }
 }

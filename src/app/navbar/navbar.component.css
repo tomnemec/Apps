@@ -6,9 +6,10 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 15px;
+  padding: 25px;
   align-items: center;
-  height: 50px;
+  text-align: center;
+  height: 60px;
 }
 .logo {
   width: 40px;

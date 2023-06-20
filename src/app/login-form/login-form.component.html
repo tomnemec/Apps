@@ -1,1 +1,29 @@
-<p>login-form works!</p>
+<section class="center gradient-bg">
+  <div class="form-card center">
+    <h1>Login</h1>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <form action="">
+      <div class="form-outline form-white mb-4">
+        <input
+          type="email"
+          [(ngModel)]="userLogin.email"
+          name="email"
+          id="email"
+          class="form-control form-control-lg"
+        />
+        <label class="form-label" for="email">Email</label>
+      </div>
+      <div class="form-outline form-white mb-4">
+        <input
+          type="password"
+          [(ngModel)]="userLogin.password"
+          id="password"
+          name="password"
+          class="form-control form-control-lg"
+        />
+        <label class="form-label" for="password">Password</label>
+      </div>
+      <button (click)="login()" class="go-to">Sign in</button>
+    </form>
+  </div>
+</section>

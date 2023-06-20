@@ -1,11 +1,16 @@
 <nav>
   <img class="logo" src="/assets/logo.png" alt="" />
   <h1>My apps</h1>
-  <button mat-button color="warn" [matMenuTriggerFor]="menu">
-    <img class="profile-pic" src="/assets/prof.avif" alt="" />
-  </button>
+  <div *ngIf="service.isLoggedIn()">
+    <button mat-button color="warn" [matMenuTriggerFor]="menu">
+      <img class="profile-pic" src="/assets/prof.avif" alt="" />
+    </button>
+  </div>
+  <div *ngIf="!service.isLoggedIn()">
+    <button mat-button color="warn" routerLink="/login">Login</button>
+  </div>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
+    <button mat-menu-item (click)="logout()">Odhlásit</button>
   </mat-menu>
 </nav>
