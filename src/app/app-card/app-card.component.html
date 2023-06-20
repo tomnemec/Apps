@@ -1,5 +1,5 @@
 <div class="card">
-  <img src="{{ app.img }}" alt="" />
+  <img src="/assets/apps/{{ app.img }}" alt="" />
   <h1>{{ app.name }}</h1>
-  <button class="go-to">Spustit</button>
+  <button class="go-to" [routerLink]="app.url">K aplikaci</button>
 </div>

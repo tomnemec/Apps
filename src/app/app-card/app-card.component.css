@@ -11,9 +11,9 @@
   flex-direction: column;
   > img {
     margin: 10px;
-    height: 200px;
-    width: 100%;
-    object-fit: fit;
+    height: 100px;
+    width: 80%;
+    object-fit: fill;
   }
 }
 .card:hover {

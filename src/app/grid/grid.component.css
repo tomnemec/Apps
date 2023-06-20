@@ -1,9 +1,19 @@
-.grid {
-  margin-top: 80px;
+section {
+  padding-top: 100px;
   height: 100vh;
-  padding: 20px;
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 25px;
+}
+input {
+  margin-bottom: 20px;
+  height: 40px;
+  width: 400px;
 }

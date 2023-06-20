@@ -1,3 +1,12 @@
-<div class="grid gradient-bg">
-  <app-card *ngFor="let app of apps" [app]="app"></app-card>
-</div>
+<section class="gradient-bg">
+  <input
+    type="text"
+    [(ngModel)]="input"
+    class="form-control"
+    placeholder="..hledej"
+    (keyup)="search()"
+  />
+  <div class="grid">
+    <app-card *ngFor="let app of apps" [app]="app"></app-card>
+  </div>
+</section>

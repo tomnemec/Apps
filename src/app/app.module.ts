@@ -16,6 +16,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormsModule } from '@angular/forms';
         path: '',
         component: HomeComponent,
         pathMatch: 'full',
+        canActivate: [AuthGuardService],
       },
       {
         path: 'login',

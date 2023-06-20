@@ -10,5 +10,6 @@ export class NavbarComponent {
   constructor(public service: UserService) {}
   logout() {
     this.service.logout();
+    window.location.reload();
   }
 }

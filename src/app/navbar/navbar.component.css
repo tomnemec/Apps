@@ -10,6 +10,7 @@ nav {
   align-items: center;
   text-align: center;
   height: 60px;
+  z-index: 3;
 }
 .logo {
   width: 40px;
