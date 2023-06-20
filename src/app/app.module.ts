@@ -12,9 +12,19 @@ import { GridComponent } from './grid/grid.component';
 import { AppsService } from './services/apps.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppCardComponent } from './app-card/app-card.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, GridComponent, AppCardComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    GridComponent,
+    AppCardComponent,
+    LoginFormComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,6 +32,18 @@ import { AppCardComponent } from './app-card/app-card.component';
     MatMenuModule,
     MatButtonModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'login',
+        component: LoginFormComponent,
+        pathMatch: 'full',
+      },
+    ]),
   ],
   providers: [AppsService],
   bootstrap: [AppComponent],

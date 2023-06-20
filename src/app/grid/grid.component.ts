@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { App, AppsService } from '../services/apps.service';
 
 @Component({
-  selector: 'grid',
+  selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css'],
 })
