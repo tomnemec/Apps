@@ -1,5 +1,5 @@
 <section class="center gradient-bg">
-  <div class="form-card center">
+  <div class="form-card center" *ngIf="form">
     <h1>Login</h1>
     <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
     <form action="">
@@ -21,9 +21,74 @@
           name="password"
           class="form-control form-control-lg"
         />
-        <label class="form-label" for="password">Password</label>
+        <label class="form-label" for="password">Heslo</label>
       </div>
-      <button (click)="login()" class="go-to">Sign in</button>
+      <button (click)="login()" class="go-to">Přihlásit</button>
     </form>
+    <p>
+      Potřebuji účet? <span class="link" (click)="switchForm()">Vytvořit</span>
+    </p>
+  </div>
+  <div class="form-card center reg" *ngIf="!form">
+    <h1>Registrace</h1>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <form action="">
+      <div class="form-outline form-white mb-4">
+        <input
+          type="text"
+          [(ngModel)]="userRegistration.Name"
+          name="name"
+          id="name"
+          class="form-control form-control-lg"
+        />
+        <label class="form-label" for="name">Jméno</label>
+      </div>
+      <div class="form-outline form-white mb-4">
+        <input
+          type="text"
+          [(ngModel)]="userRegistration.Surname"
+          name="surname"
+          id="surname"
+          class="form-control form-control-lg"
+        />
+        <label class="form-label" for="surname">Příjmení</label>
+      </div>
+      <div class="form-outline form-white mb-4">
+        <input
+          type="email"
+          [(ngModel)]="userRegistration.Email"
+          name="email"
+          id="email"
+          class="form-control form-control-lg"
+        />
+        <label class="form-label" for="email">Email</label>
+      </div>
+      <div class="form-outline form-white mb-4">
+        <input
+          type="password"
+          [(ngModel)]="userRegistration.Password"
+          id="password"
+          name="password"
+          class="form-control form-control-lg"
+        />
+        <label class="form-label" for="password">Heslo</label>
+      </div>
+      <div class="form-outline form-white mb-4">
+        <input
+          type="password"
+          [(ngModel)]="validation.repeatPassword"
+          (keyup)="validatePassword()"
+          id="oldPassword"
+          name="oldPassword"
+          class="form-control form-control-lg"
+        />
+        <label class="form-label" for="oldPassword">Znovu heslo</label>
+      </div>
+      <button (click)="login()" class="go-to">Registrovat</button>
+    </form>
+    <p>
+      Již mám účet účet?
+      <span class="link" (click)="switchForm()">Přihlásit</span>
+    </p>
   </div>
 </section>

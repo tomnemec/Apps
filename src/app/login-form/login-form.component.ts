@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Login, UserService } from '../services/user.service';
+import { Login, SaveUser, UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,17 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent {
   userLogin: Login = { email: '', password: '' };
+  userRegistration: SaveUser = {
+    Name: '',
+    Surname: '',
+    Email: '',
+    Password: '',
+  };
+  validation = {
+    repeatPassword: '',
+  };
   error: string = '';
+  form = true;
 
   constructor(private serviceUsers: UserService, private router: Router) {}
   ngOnInit() {}
@@ -24,5 +34,15 @@ export class LoginFormComponent {
       },
       error: (e: any) => (this.error = e.error.message),
     });
+  }
+  switchForm() {
+    this.form = !this.form;
+  }
+  validatePassword() {
+    if (this.userRegistration.Password != this.validation.repeatPassword) {
+      this.error = 'Passwords do not match';
+    } else {
+      this.error = '';
+    }
   }
 }

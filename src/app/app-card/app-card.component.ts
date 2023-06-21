@@ -8,4 +8,7 @@ import { App } from '../services/apps.service';
 })
 export class AppCardComponent {
   @Input() app: App = {} as App;
+  redirectToExternalUrl(url: string) {
+    window.location.href = url;
+  }
 }

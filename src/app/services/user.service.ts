@@ -11,6 +11,12 @@ export interface User {
   Surname: string;
   Email: string;
 }
+export interface SaveUser {
+  Name: string;
+  Surname: string;
+  Email: string;
+  Password: string;
+}
 @Injectable({
   providedIn: 'root',
 })
