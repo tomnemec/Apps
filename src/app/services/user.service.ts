@@ -17,17 +17,23 @@ export interface SaveUser {
   Email: string;
   Password: string;
 }
+export interface PasswordChange {
+  oldPassword: string;
+  newPassword: string;
+}
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  url = 'https://sw02660.global.hvwan.net/validator/';
   constructor(private http: HttpClient) {}
 
   login(login: Login) {
-    return this.http.post(
-      'https://sw02660.global.hvwan.net/validator/api/auth',
-      login
-    );
+    return this.http.post(this.url + 'api/auth', login);
+  }
+
+  register(user: SaveUser) {
+    return this.http.post(this.url + 'api/users', user);
   }
   logout() {
     localStorage.removeItem('token');
@@ -50,5 +56,12 @@ export class UserService {
     let options = { headers: headers };
 
     return options;
+  }
+  passwordChange(change: PasswordChange, id: number) {
+    return this.http.post(
+      this.url + 'api/users/password-change/' + id,
+      change,
+      this.getValidation()
+    );
   }
 }

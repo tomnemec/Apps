@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     GridComponent,
     AppCardComponent,
     LoginFormComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,12 @@ import { AuthGuardService } from './services/auth-guard.service';
         path: 'login',
         component: LoginFormComponent,
         pathMatch: 'full',
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuardService],
       },
     ]),
   ],

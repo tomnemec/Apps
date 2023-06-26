@@ -9,12 +9,12 @@
   width: 200px;
   display: flex;
   flex-direction: column;
-  > img {
-    margin: 10px;
-    height: 100px;
-    width: 80%;
-    object-fit: fill;
-  }
+}
+.app-img {
+  margin: 10px;
+  height: 100px;
+  width: 80%;
+  object-fit: fill;
 }
 .card:hover {
   transform: scale(1.05);

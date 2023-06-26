@@ -1,17 +1,22 @@
 <nav>
-  <img class="logo" src="/apps//assets/logo.png" alt="" />
+  <img
+    class="logo"
+    src="/apps/assets/logo.png"
+    alt=""
+    (click)="redirectToExternalUrl()"
+  />
   <h1 *ngIf="service.isLoggedIn()">Moje aplikace</h1>
   <h1 *ngIf="!service.isLoggedIn()">HSQ Platforma</h1>
   <div *ngIf="service.isLoggedIn()">
     <button mat-button color="warn" [matMenuTriggerFor]="menu">
-      <img class="profile-pic" src="/apps/assets/prof.avif" alt="" />
+      <img class="profile-pic" src="/apps/assets/prof.jpg" alt="" />
     </button>
   </div>
   <div *ngIf="!service.isLoggedIn()">
     <button mat-button color="warn" routerLink="/login">Přihlásit</button>
   </div>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item disabled="">
+    <button mat-menu-item routerLink="/profile">
       Profil <i class="bi bi-person"></i>
     </button>
     <button mat-menu-item (click)="logout()">

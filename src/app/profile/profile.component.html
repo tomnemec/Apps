@@ -1,0 +1,29 @@
+<div class="section gradient-bg">
+  <div class="img-section center">
+    <img src="/assets/prof.jpg" alt="" />
+  </div>
+  <div class="profile-section center">
+    <h2>{{ user.Email }}</h2>
+    <h3>{{ user.Name }} {{ user.Surname }}</h3>
+    <button *ngIf="!formPassword" class="go-to" (click)="switchForm()">
+      Změna hesla
+    </button>
+    <form *ngIf="formPassword" action="">
+      <label for="">Staré heslo</label>
+      <input
+        name="oldPassword"
+        [(ngModel)]="passwords.oldPassword"
+        class="form-control"
+        type="password"
+      />
+      <label for="">Nové heslo</label>
+      <input
+        name="newPassword"
+        [(ngModel)]="passwords.newPassword"
+        class="form-control"
+        type="password"
+      />
+      <button class="go-to" (click)="changePassword()">Změnit</button>
+    </form>
+  </div>
+</div>

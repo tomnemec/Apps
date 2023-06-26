@@ -32,7 +32,7 @@ export class LoginFormComponent {
       complete: () => {
         this.router.navigate(['']);
       },
-      error: (e: any) => (this.error = e.error.message),
+      error: (e: any) => (this.error = 'Heslo nebo email nesouhlasí!'),
     });
   }
   switchForm() {
@@ -40,9 +40,20 @@ export class LoginFormComponent {
   }
   validatePassword() {
     if (this.userRegistration.Password != this.validation.repeatPassword) {
-      this.error = 'Passwords do not match';
+      this.error = 'Hesla se neshodují!';
     } else {
       this.error = '';
     }
+  }
+  register() {
+    this.serviceUsers.register(this.userRegistration).subscribe({
+      next: (r: any) => {
+        localStorage.setItem('token', r.token);
+      },
+      complete: () => {
+        this.router.navigate(['']);
+      },
+      error: (e: any) => (this.error = 'Něco se pokazilo!'),
+    });
   }
 }

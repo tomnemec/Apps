@@ -1,0 +1,31 @@
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.img-section {
+  width: 50%;
+  height: auto;
+}
+.img-section img {
+  width: 200px;
+  height: auto;
+  object-fit: fill;
+  border-radius: 50%;
+}
+.profile-section {
+  width: 50%;
+  flex-direction: column;
+}
+form {
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  text-align: center;
+}
+form label {
+  margin: 5px;
+}
+button {
+  margin-top: 10px;
+}
