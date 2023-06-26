@@ -9,11 +9,21 @@ import { App, AppsService } from '../services/apps.service';
 export class GridComponent {
   apps: App[] = [];
   input: string = '';
+  error = '';
+  loading: boolean = true;
   constructor(private serviceApps: AppsService) {}
   ngOnInit(): void {
-    this.serviceApps.getApps().subscribe((data) => {
-      this.apps = data;
-      console.log(this.apps);
+    this.serviceApps.getApps().subscribe({
+      next: (res) => {
+        this.apps = res;
+      },
+      complete: () => {
+        this.loading = false;
+      },
+      error: (e: any) => {
+        this.loading = false;
+        this.error = 'Heslo nebo email nesouhlasí!';
+      },
     });
   }
   search() {

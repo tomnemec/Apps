@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { GridComponent } from './grid/grid.component';
 import { AppsService } from './services/apps.service';
@@ -36,6 +37,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     MatMenuModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     RouterModule.forRoot([
       {

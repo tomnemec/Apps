@@ -14,6 +14,8 @@ export class ProfileComponent {
     oldPassword: '',
     newPassword: '',
   };
+  error = '';
+  success: boolean = false;
   constructor(
     private active: ActivatedRoute,
     private userService: UserService
@@ -27,10 +29,16 @@ export class ProfileComponent {
     this.formPassword = !this.formPassword;
   }
   changePassword() {
-    this.userService
-      .passwordChange(this.passwords, this.user.Id)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    this.userService.passwordChange(this.passwords, this.user.Id).subscribe({
+      complete: () => {
+        this.success = true;
+        this.passwords = {
+          oldPassword: '',
+          newPassword: '',
+        };
+      },
+      error: (e: any) =>
+        (this.error = 'Heslo se nepovedlo změnit! Zkuste opakovat'),
+    });
   }
 }

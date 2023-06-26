@@ -5,7 +5,7 @@
     alt=""
     (click)="redirectToExternalUrl()"
   />
-  <h1 *ngIf="service.isLoggedIn()">Moje aplikace</h1>
+  <h1 *ngIf="service.isLoggedIn()" routerLink="/">Moje aplikace</h1>
   <h1 *ngIf="!service.isLoggedIn()">HSQ Platforma</h1>
   <div *ngIf="service.isLoggedIn()">
     <button mat-button color="warn" [matMenuTriggerFor]="menu">
