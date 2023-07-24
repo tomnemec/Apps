@@ -11,11 +11,16 @@ export interface User {
   Surname: string;
   Email: string;
 }
+export interface Department {
+  id: number;
+  name: string;
+}
 export interface SaveUser {
   Name: string;
   Surname: string;
   Email: string;
   Password: string;
+  DepartmentId: number;
 }
 export interface PasswordChange {
   oldPassword: string;
@@ -63,5 +68,8 @@ export class UserService {
       change,
       this.getValidation()
     );
+  }
+  getDepartments() {
+    return this.http.get<Department[]>(this.url + 'api/departments');
   }
 }

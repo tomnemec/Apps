@@ -84,6 +84,19 @@
         />
         <label class="form-label" for="oldPassword">Znovu heslo</label>
       </div>
+      <div class="form-group">
+        <select
+          class="form-control form-control-lg"
+          name="vehicleId"
+          id="vehicleId"
+          [(ngModel)]="userRegistration.DepartmentId"
+        >
+          <option *ngFor="let d of departments" value="{{ d.id }}">
+            {{ d.name }}
+          </option>
+        </select>
+        <label class="form-label" for="vehicleId">Oddělení:</label>
+      </div>
       <button (click)="register()" class="go-to">Registrovat</button>
     </form>
     <p>

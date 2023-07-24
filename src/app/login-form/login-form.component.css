@@ -1,5 +1,7 @@
 section {
-  height: 110vh;
+  min-height: 110vh;
+  max-height: fit-content;
+  padding-bottom: 50px;
 }
 h1 {
   font-size: 3rem;

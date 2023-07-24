@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { Login, SaveUser, UserService } from '../services/user.service';
+import {
+  Department,
+  Login,
+  SaveUser,
+  UserService,
+} from '../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,20 +14,26 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent {
   userLogin: Login = { email: '', password: '' };
-  userRegistration: SaveUser = {
-    Name: '',
-    Surname: '',
-    Email: '',
-    Password: '',
-  };
+  userRegistration: SaveUser = {} as SaveUser;
   validation = {
     repeatPassword: '',
   };
   error: string = '';
   form = true;
+  departments: Department[] = [];
 
   constructor(private serviceUsers: UserService, private router: Router) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.serviceUsers.getDepartments().subscribe({
+      next: (r: any) => {
+        this.departments = r;
+      },
+      complete: () => {},
+      error: (e: any) => {
+        this.error = 'Něco se pokazilo!';
+      },
+    });
+  }
   login() {
     this.userLogin.email.toLowerCase();
     this.serviceUsers.login(this.userLogin).subscribe({
