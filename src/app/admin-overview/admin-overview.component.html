@@ -1,0 +1,23 @@
+<h3>Přehled uživatelů</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Jméno</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Akce</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of access">
+      <td>{{ a.appName }}</td>
+      <td>{{ a.email }}</td>
+      <td>{{ a.role }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteAccess(a.id)">
+          Smazat
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

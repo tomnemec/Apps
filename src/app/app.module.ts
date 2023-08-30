@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminOverviewComponent } from './admin-overview/admin-overview.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
     AppCardComponent,
     LoginFormComponent,
     ProfileComponent,
+    AdminOverviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,12 @@ import { ProfileComponent } from './profile/profile.component';
       {
         path: 'profile',
         component: ProfileComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'admin',
+        component: AdminOverviewComponent,
         pathMatch: 'full',
         canActivate: [AuthGuardService],
       },

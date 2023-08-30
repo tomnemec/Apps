@@ -6,6 +6,12 @@ export interface App {
   url: string;
   img: string;
 }
+export interface Acces {
+  id: number;
+  email: string;
+  appName: string;
+  role: string;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -15,6 +21,16 @@ export class AppsService {
   getApps() {
     return this.http.get<App[]>(
       'https://sw02660.global.hvwan.net/validator/api/apps'
+    );
+  }
+  getAccess() {
+    return this.http.get<Acces[]>(
+      'https://sw02660.global.hvwan.net/validator/api/accessvalidation/getall'
+    );
+  }
+  deleteAccess(id: number) {
+    return this.http.delete(
+      'https://sw02660.global.hvwan.net/validator/api/accessvalidation/' + id
     );
   }
 }
