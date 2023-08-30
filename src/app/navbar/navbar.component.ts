@@ -8,9 +8,11 @@ import { User } from '@auth0/auth0-angular';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  user: User | null = {} as User;
+  user: User | null = this.service.getcurrentUser();
   constructor(public service: UserService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.user);
+  }
   logout() {
     this.service.logout();
     window.location.reload();

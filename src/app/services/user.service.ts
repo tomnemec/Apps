@@ -10,6 +10,7 @@ export interface User {
   Name: string;
   Surname: string;
   Email: string;
+  IsAdmin: string;
 }
 export interface Department {
   id: number;
@@ -21,6 +22,7 @@ export interface SaveUser {
   Email: string;
   Password: string;
   DepartmentId: number;
+  IsAdmin: boolean;
 }
 export interface PasswordChange {
   oldPassword: string;

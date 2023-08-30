@@ -57,6 +57,7 @@ export class LoginFormComponent {
     }
   }
   register() {
+    this.userRegistration.IsAdmin = false;
     this.serviceUsers.register(this.userRegistration).subscribe({
       next: (r: any) => {
         localStorage.setItem('token', r.token);

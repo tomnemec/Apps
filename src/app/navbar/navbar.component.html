@@ -19,7 +19,11 @@
     <button mat-menu-item routerLink="/profile">
       Profil <i class="bi bi-person"></i>
     </button>
-    <button mat-menu-item routerLink="/admin">
+    <button
+      mat-menu-item
+      routerLink="/admin"
+      *ngIf="user && user['IsAdmin'] == 'True'"
+    >
       Admin <i class="bi bi-person"></i>
     </button>
     <button mat-menu-item (click)="logout()">
