@@ -1,3 +1,15 @@
+<notification
+  *ngIf="notificationStatus === 'success'"
+  notificationContent="Žádanka byla úspěšně aktualizována"
+  header="Hotovo"
+  loaderColor="green"
+></notification>
+<notification
+  *ngIf="notificationStatus === 'error'"
+  notificationContent="Něco se pokazilo, zkuste to znovu"
+  header="Chyba"
+  loaderColor="red"
+></notification>
 <h3>Přehled uživatelů</h3>
 <table class="table table-striped">
   <thead>

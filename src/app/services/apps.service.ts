@@ -33,4 +33,10 @@ export class AppsService {
       'https://sw02660.global.hvwan.net/validator/api/accessvalidation/' + id
     );
   }
+  updateAccess(data: Acces, id: number) {
+    return this.http.put(
+      'https://sw02660.global.hvwan.net/validator/api/accessvalidation/' + id,
+      data
+    );
+  }
 }

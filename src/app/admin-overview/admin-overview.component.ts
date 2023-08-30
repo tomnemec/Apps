@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Acces, App, AppsService } from '../services/apps.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AccessFormComponent } from '../access-form/access-form.component';
 
 @Component({
   selector: 'app-admin-overview',
@@ -9,8 +11,10 @@ import { Acces, App, AppsService } from '../services/apps.service';
 export class AdminOverviewComponent {
   error = '';
   isLoading = false;
+  notificationStatus: any;
+  notificationTimeout: any;
   access: Acces[] = [];
-  constructor(private appService: AppsService) {}
+  constructor(private appService: AppsService, public dialog: MatDialog) {}
   ngOnInit(): void {
     this.getAccess();
   }
@@ -38,6 +42,25 @@ export class AdminOverviewComponent {
       error: (e: any) => {
         console.log(e);
       },
+    });
+  }
+  openDialog(request: Request): void {
+    const dialogRef = this.dialog.open(AccessFormComponent, {
+      data: request,
+    });
+
+    dialogRef.componentInstance.requestUpdated.subscribe((updateSuccess) => {
+      updateSuccess
+        ? (this.notificationStatus = 'success')
+        : (this.notificationStatus = 'error');
+      clearTimeout(this.notificationTimeout);
+      this.notificationTimeout = setInterval(() => {
+        this.notificationStatus = null;
+      }, 2000);
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getAccess();
     });
   }
 }

@@ -20,6 +20,10 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminOverviewComponent } from './admin-overview/admin-overview.component';
+import { NotificationComponent } from './notification/notification.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { AccessFormComponent } from './access-form/access-form.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,8 @@ import { AdminOverviewComponent } from './admin-overview/admin-overview.componen
     LoginFormComponent,
     ProfileComponent,
     AdminOverviewComponent,
+    NotificationComponent,
+    AccessFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +45,7 @@ import { AdminOverviewComponent } from './admin-overview/admin-overview.componen
     FormsModule,
     MatMenuModule,
     MatButtonModule,
+    MatDialogModule,
     MatProgressSpinnerModule,
     HttpClientModule,
     RouterModule.forRoot([
