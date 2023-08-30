@@ -24,6 +24,7 @@ import { NotificationComponent } from './notification/notification.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { AccessFormComponent } from './access-form/access-form.component';
+import { AdminGuardService } from './admin-guard.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { AccessFormComponent } from './access-form/access-form.component';
         path: 'admin',
         component: AdminOverviewComponent,
         pathMatch: 'full',
-        canActivate: [AuthGuardService],
+        canActivate: [AdminGuardService],
       },
     ]),
   ],

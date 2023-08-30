@@ -50,6 +50,11 @@ export class UserService {
     if (token) return true;
     else return false;
   }
+  isAdmin() {
+    let user = this.getcurrentUser();
+    if (user?.IsAdmin == 'True') return true;
+    else return false;
+  }
   getcurrentUser() {
     let token = localStorage.getItem('token');
     if (!token) return null;
