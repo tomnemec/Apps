@@ -44,7 +44,7 @@ export class AdminOverviewComponent {
       },
     });
   }
-  openDialog(request: Request): void {
+  openDialog(request: Acces): void {
     const dialogRef = this.dialog.open(AccessFormComponent, {
       data: request,
     });

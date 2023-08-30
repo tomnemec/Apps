@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Acces, AppsService } from '../services/apps.service';
+import { Acces, App, AppsService } from '../services/apps.service';
 
 @Component({
   selector: 'app-access-form',
@@ -11,12 +11,26 @@ export class AccessFormComponent {
   @Output() requestUpdated: EventEmitter<boolean> = new EventEmitter<boolean>();
   accessToSafe: Acces = this.data;
   error = '';
+  apps: App[] = [];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Acces,
     private accessService: AppsService,
 
     private dialogRef: MatDialogRef<AccessFormComponent>
   ) {}
+  ngOnInit(): void {
+    this.getApps();
+  }
+  getApps() {
+    this.accessService.getApps().subscribe({
+      next: (res) => {
+        this.apps = res;
+      },
+      error: (e: any) => {
+        console.log(e);
+      },
+    });
+  }
   updateAccess() {
     this.accessService.updateAccess(this.data, this.data.id).subscribe({
       next: () => {

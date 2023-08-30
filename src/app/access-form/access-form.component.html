@@ -1,40 +1,41 @@
-<section class="center gradient-bg">
-  <div class="form-card center">
-    <h1>Přístup:</h1>
-    {{ accessToSafe | json }}
-    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-    <form action="">
-      <div class="form-outline form-white mb-4">
-        <input
-          type="email"
-          [(ngModel)]="accessToSafe.email"
-          name="email"
-          id="email"
-          class="form-control form-control-lg"
-        />
-        <label class="form-label" for="email">Email</label>
-      </div>
-      <div class="form-outline form-white mb-4">
-        <input
-          type="text"
-          [(ngModel)]="accessToSafe.appName"
-          id="appName"
-          name="appName"
-          class="form-control form-control-lg"
-        />
-        <label class="form-label" for="appName">App</label>
-      </div>
-      <div class="form-outline form-white mb-4">
-        <input
-          type="text"
-          [(ngModel)]="accessToSafe.role"
-          id="role"
-          name="role"
-          class="form-control form-control-lg"
-        />
-        <label class="form-label" for="role">Heslo</label>
-      </div>
-      <button (click)="updateAccess()" class="go-to">Přihlásit</button>
-    </form>
-  </div>
+<section class="gradient-bg">
+  <h1>Přístup:</h1>
+  {{ accessToSafe | json }}
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <form action="">
+    <div class="form-outline form-white mb-4">
+      <input
+        type="email"
+        [(ngModel)]="accessToSafe.email"
+        name="email"
+        id="email"
+        class="form-control form-control-lg"
+      />
+      <label class="form-label" for="email">Email</label>
+    </div>
+    <div class="form-outline form-white mb-4">
+      <select
+        class="form-control form-control-lg"
+        name="appName"
+        id="appName"
+        [(ngModel)]="accessToSafe.appName"
+      >
+        <option *ngFor="let a of apps" value="{{ a.name }}">
+          {{ a.name }}
+        </option>
+      </select>
+      <label class="form-label" for="appName">AppName</label>
+    </div>
+    <div class="form-outline form-white mb-4">
+      <input
+        type="text"
+        [(ngModel)]="accessToSafe.role"
+        id="role"
+        name="role"
+        class="form-control form-control-lg"
+      />
+      <label class="form-label" for="role">Role</label>
+    </div>
+    <button (click)="updateAccess()" class="go-to">Upravit</button>
+  </form>
 </section>

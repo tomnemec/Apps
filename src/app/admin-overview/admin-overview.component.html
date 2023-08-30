@@ -22,9 +22,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let a of access">
-      <td>{{ a.appName }}</td>
-      <td>{{ a.email }}</td>
-      <td>{{ a.role }}</td>
+      <td (click)="openDialog(a)">{{ a.appName }}</td>
+      <td (click)="openDialog(a)">{{ a.email }}</td>
+      <td (click)="openDialog(a)">{{ a.role }}</td>
       <td>
         <button class="btn btn-danger" (click)="deleteAccess(a.id)">
           Smazat

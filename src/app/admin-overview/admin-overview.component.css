@@ -1,3 +1,6 @@
 table {
   margin-top: 60px;
 }
+tr:hover {
+  cursor: pointer;
+}
