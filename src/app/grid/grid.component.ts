@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { App, AppsService } from '../services/apps.service';
+import { User, UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-grid',
@@ -11,9 +12,13 @@ export class GridComponent {
   input: string = '';
   error = '';
   loading: boolean = true;
-  constructor(private serviceApps: AppsService) {}
+  user: User = this.userService.getcurrentUser() || ({} as User);
+  constructor(
+    private serviceApps: AppsService,
+    private userService: UserService
+  ) {}
   ngOnInit(): void {
-    this.serviceApps.getApps().subscribe({
+    this.serviceApps.getAllowedApps(this.user.Email).subscribe({
       next: (res) => {
         this.apps = res;
       },

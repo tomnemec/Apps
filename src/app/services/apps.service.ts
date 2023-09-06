@@ -23,6 +23,12 @@ export class AppsService {
       'https://sw02660.global.hvwan.net/validator/api/apps'
     );
   }
+  getAllowedApps(email: string) {
+    const encodedEmail = encodeURIComponent(email);
+    return this.http.get<App[]>(
+      `https://sw02660.global.hvwan.net/validator/api/apps/allowed/${encodedEmail}`
+    );
+  }
   getAccess() {
     return this.http.get<Acces[]>(
       'https://sw02660.global.hvwan.net/validator/api/accessvalidation/getall'
