@@ -26,7 +26,7 @@ export class AppsService {
   getAllowedApps(email: string) {
     const encodedEmail = encodeURIComponent(email);
     return this.http.get<App[]>(
-      `https://sw02660.global.hvwan.net/validator/api/apps/allowed/${encodedEmail}`
+      `https://sw02660.global.hvwan.net/validator/api/apps/allowed?email=${encodedEmail}`
     );
   }
   getAccess() {
@@ -42,6 +42,12 @@ export class AppsService {
   updateAccess(data: Acces, id: number) {
     return this.http.put(
       'https://sw02660.global.hvwan.net/validator/api/accessvalidation/' + id,
+      data
+    );
+  }
+  createAccess(data: Acces) {
+    return this.http.post(
+      'https://sw02660.global.hvwan.net/validator/api/accessvalidation/',
       data
     );
   }

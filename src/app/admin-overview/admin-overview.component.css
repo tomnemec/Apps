@@ -1,6 +1,10 @@
-table {
-  margin-top: 60px;
-}
 tr:hover {
   cursor: pointer;
+}
+.circle {
+  margin: 10px;
+  border-radius: 50%;
+}
+section {
+  margin: 90px;
 }
