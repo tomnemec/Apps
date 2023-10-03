@@ -10,5 +10,6 @@
     <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
     <mat-spinner *ngIf="loading"></mat-spinner>
     <app-card *ngFor="let app of apps" [app]="app"></app-card>
+    <h1 *ngIf="!apps.length">...žádná aplikace</h1>
   </div>
 </section>

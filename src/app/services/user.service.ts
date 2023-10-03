@@ -32,7 +32,8 @@ export interface PasswordChange {
   providedIn: 'root',
 })
 export class UserService {
-  url = 'https://sw02660.global.hvwan.net/validator/';
+  url = ' http://localhost:5056/';
+  //url = 'https://sw02660.global.hvwan.net/validator/';
   constructor(private http: HttpClient) {}
 
   login(login: Login) {

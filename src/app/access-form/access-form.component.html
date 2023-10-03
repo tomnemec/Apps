@@ -1,6 +1,5 @@
 <section class="gradient-bg">
   <h1>Přístup:</h1>
-  {{ accessToSafe | json }}
   <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
   <form action="">
     <div class="form-outline form-white mb-4">
@@ -36,6 +35,6 @@
       />
       <label class="form-label" for="role">Role</label>
     </div>
-    <button (click)="updateAccess()" class="go-to">Upravit</button>
+    <button (click)="updateAccess()" class="go-to">Uložit</button>
   </form>
 </section>

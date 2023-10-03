@@ -32,6 +32,7 @@
   <div class="form-card center reg" *ngIf="!form">
     <h1>Registrace</h1>
     <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <div *ngIf="success" class="alert alert-success">{{ success }}</div>
     <form action="">
       <div class="form-outline form-white mb-4">
         <input

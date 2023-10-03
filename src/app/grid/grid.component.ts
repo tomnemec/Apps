@@ -32,10 +32,20 @@ export class GridComponent {
     });
   }
   search() {
-    this.serviceApps.getApps().subscribe((data) => {
-      this.apps = data.filter((app) => {
-        return app.name.toLowerCase().includes(this.input.toLowerCase());
-      });
+    this.serviceApps.getAllowedApps(this.user.Email).subscribe({
+      next: (res) => {
+        this.apps = res;
+        this.apps = res.filter((app) => {
+          return app.name.toLowerCase().includes(this.input.toLowerCase());
+        });
+      },
+      complete: () => {
+        this.loading = false;
+      },
+      error: (e: any) => {
+        this.loading = false;
+        this.error = 'Heslo nebo email nesouhlasí!';
+      },
     });
   }
 }

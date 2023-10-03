@@ -19,6 +19,7 @@ export class LoginFormComponent {
     repeatPassword: '',
   };
   error: string = '';
+  success: string = '';
   form = true;
   departments: Department[] = [];
 
@@ -59,11 +60,10 @@ export class LoginFormComponent {
   register() {
     this.userRegistration.IsAdmin = false;
     this.serviceUsers.register(this.userRegistration).subscribe({
-      next: (r: any) => {
-        localStorage.setItem('token', r.token);
-      },
+      next: (r: any) => {},
       complete: () => {
-        this.router.navigate(['']);
+        this.success = 'Registrace proběhla úspěšně!';
+        console.log('sucess');
       },
       error: (e: any) => (this.error = 'Něco se pokazilo!'),
     });
