@@ -28,12 +28,16 @@ export interface PasswordChange {
   oldPassword: string;
   newPassword: string;
 }
+export interface Hardware {
+  name: string;
+  userName: string;
+}
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   url = ' http://localhost:5056/';
-  //url = 'https://sw02660.global.hvwan.net/validator/';
+  // url = 'https://sw02660.global.hvwan.net/validator/';
   constructor(private http: HttpClient) {}
 
   login(login: Login) {

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Hardware } from './user.service';
 export interface App {
   id: number;
   name: string;
@@ -27,6 +28,12 @@ export class AppsService {
     const encodedEmail = encodeURIComponent(email);
     return this.http.get<App[]>(
       `https://sw02660.global.hvwan.net/validator/api/apps/allowed?email=${encodedEmail}`
+    );
+  }
+  getHardware(email: string) {
+    const encodedEmail = encodeURIComponent(email);
+    return this.http.get<Hardware[]>(
+      `https://sw02660.global.hvwan.net/pasma/api/hardware?email=${encodedEmail}`
     );
   }
   getAccess() {

@@ -27,5 +27,25 @@
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
       <div *ngIf="success" class="alert alert-success">Heslo změněno.</div>
     </form>
+    <h3 class="mt-3">Seznam zařízení:</h3>
+    <h4 *ngIf="!hardware">Nemáte přiřazeno žádné zařízení.</h4>
+    <table
+      class="table"
+      *ngIf="hardware"
+      style="max-width: 400px; border-radius: 5px; overflow: hidden"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Název</th>
+          <th scope="col">Vlastník</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let h of hardware">
+          <td>{{ h.name }}</td>
+          <td>{{ h.userName }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
